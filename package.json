@@ -1,0 +1,42 @@
+{
+	"name": "linkup",
+	"description": "A JavaScript library for simple file sharing using WebRTC.",
+	"version": "0.1.0",
+	"main": "dist/linkup.js",
+	"keywords": [
+		"linkup",
+		"webrtc",
+		"file",
+		"sharing",
+		"javascript",
+		"peerjs",
+		"datachannel",
+		"sctp",
+		"p2p"
+	],
+	"author": {
+		"name": "Jannis R",
+		"email": "mail@jannisr.de",
+		"url": "http://jannisr.de"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/derhuerst/linkup.git"
+	},
+	"license": "BSD-3-Clause",
+	"devDependencies": {
+		"gulp":					"^3.8.0",
+		"browserify":			"^4.2.0",
+		"coffeeify":			"^0.6.0",
+		"vinyl-source-stream":	"^0.1.1",
+		"gulp-filesize":		"^0.0.6",
+		"gulp-rename":			"^1.2.0",
+		"gulp-streamify":		"^0.0.4",
+		"gulp-uglify":			"^0.3.1",
+		"gulp-gzip":			"^0.0.8"
+	},
+	"scripts": {
+		"build": "gulp"
+	},
+	"engine": "node >= 0.10"
+}

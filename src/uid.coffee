@@ -19,4 +19,4 @@ uid = (n, s) ->
 
 
 
-exports.uid = uid
+module.exports = uid

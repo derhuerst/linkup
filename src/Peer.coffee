@@ -419,4 +419,4 @@ class Peer extends EventEmitter
 
 
 
-exports.Peer = Peer
+module.exports = Peer

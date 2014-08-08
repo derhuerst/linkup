@@ -40,4 +40,4 @@ class EventEmitter
 
 
 
-exports.EventEmitter = EventEmitter
+module.exports = EventEmitter

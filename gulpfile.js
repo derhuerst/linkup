@@ -6,8 +6,7 @@ var
 	filesize	= require('gulp-filesize'),
 	rename		= require('gulp-rename'),
 	streamify	= require('gulp-streamify'),
-	uglify		= require('gulp-uglify'),
-	gzip		= require('gulp-gzip');
+	uglify		= require('gulp-uglify');
 
 var pkg = require('./package.json');
 
@@ -22,5 +21,6 @@ gulp.task('default', function(){
 		.pipe( gulp.dest('dist') )
 		.pipe( rename(pkg.name + '.min.js') )
 		.pipe( streamify(uglify()) )
-		.pipe( gulp.dest('dist') )
+		.pipe( gulp.dest('dist') );
+	// todo: filesize
 });

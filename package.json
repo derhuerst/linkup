@@ -32,8 +32,7 @@
 		"gulp-filesize":		"^0.0.6",
 		"gulp-rename":			"^1.2.0",
 		"gulp-streamify":		"^0.0.4",
-		"gulp-uglify":			"^0.3.1",
-		"gulp-gzip":			"^0.0.8"
+		"gulp-uglify":			"^0.3.1"
 	},
 	"scripts": {
 		"build": "gulp"

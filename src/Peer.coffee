@@ -30,9 +30,9 @@ class Peer extends EventEmitter
 	# Since `linkup` is based on PeerJS, `_peerjs` is a reference to a `PeerJS.Peer` object. This object is responsible for signaling, connecting and sending messages and data.
 	_peerjs: null
 
-	# the PeerJS data connection used to transfer commands
+	# The PeerJS data connection used to transfer commands.
 	_commandConnection: null
-	# the PeerJS data connection used to transfer (file) data
+	# The PeerJS data connection used to transfer (file) data.
 	_dataConnection: null
 
 	# The peer listening for other peers connecting will be the controller once they are connected. The controller decides which files will be transferred next. By that, two files never get transferred at the same time.
@@ -388,9 +388,9 @@ class Peer extends EventEmitter
 					if file.mode is 'send'
 						# If the file we are sending right now has just been added, its metadata might still be on the way. In this case, the peer doesn't now the id we send with the `receive` command.
 						# todo: Fix this ugly timeout. A solution would by to confirm every command. The `receive` command and the data would then only be sent if the `metadata` has been confirmed. For example:
-						# _sendCommand 'metadata', file
-						# 	cb -> sendCommand 'receive', file
-						#		cb -> sendData file
+						# @_sendCommand 'metadata', file
+						# 	cb -> @_sendCommand 'receive', file
+						#		cb -> @_sendData file
 						setTimeout () =>
 							@_sendCommand 'receive', file
 							@_sendData file

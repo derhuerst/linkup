@@ -53,7 +53,7 @@ class Peer extends EventEmitter
 	constructor: () ->
 		super    # call super class constructor
 
-		@id = linkup.uid 6
+		@id = uid 6
 
 		# controller, connected, open, idle
 		@on 'open', () ->

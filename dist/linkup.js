@@ -41,7 +41,7 @@ EventEmitter = (function() {
 
 })();
 
-exports.EventEmitter = EventEmitter;
+module.exports = EventEmitter;
 
 
 },{}],2:[function(_dereq_,module,exports){
@@ -134,7 +134,7 @@ File = (function(_super) {
 
 })(EventEmitter);
 
-exports.File = File;
+module.exports = File;
 
 
 },{"./EventEmitter.coffee":1,"./uid.coffee":5}],3:[function(_dereq_,module,exports){
@@ -177,7 +177,7 @@ Peer = (function(_super) {
     this._onData = __bind(this._onData, this);
     this._onCommand = __bind(this._onCommand, this);
     Peer.__super__.constructor.apply(this, arguments);
-    this.id = linkup.uid(6);
+    this.id = uid(6);
     this.on('open', function() {
       this.isOpen = true;
       return this.isIdle = false;
@@ -428,6 +428,7 @@ Peer = (function(_super) {
     }
     payload.id = file.id;
     payload.command = command;
+    console.log(payload);
     this._commandConnection.send(JSON.stringify(payload));
     return this._log("" + file.name + ": `" + command + "` command sent");
   };
@@ -436,6 +437,8 @@ Peer = (function(_super) {
     var file;
     data = JSON.parse(data);
     file = this.files[data.id] || null;
+    this._log(data);
+    this._log(this.files);
     this._log("" + (file ? file.name : data.name) + ": `" + data.command + "` command received");
     switch (data.command) {
       case 'metadata':
@@ -485,6 +488,7 @@ Peer = (function(_super) {
 
   Peer.prototype._checkSendCommand = function(file) {
     var _i, _len, _ref;
+    this._log('_checkSendCommand');
     if (!this.isOpen) {
       return;
     }
@@ -502,6 +506,11 @@ Peer = (function(_super) {
           }
           this.currentFile = file;
           if (file.mode === 'send') {
+            this._sendCommand('metadata', file, {
+              name: file.name,
+              size: file.size,
+              type: file.type
+            });
             setTimeout((function(_this) {
               return function() {
                 _this._sendCommand('receive', file);
@@ -533,7 +542,7 @@ Peer = (function(_super) {
 
 })(EventEmitter);
 
-exports.Peer = Peer;
+module.exports = Peer;
 
 
 },{"./EventEmitter.coffee":1,"./File.coffee":2,"./uid.coffee":5}],4:[function(_dereq_,module,exports){
@@ -554,7 +563,7 @@ uid = function(n, s) {
   return s;
 };
 
-exports.uid = uid;
+module.exports = uid;
 
 
 },{}]},{},[4])

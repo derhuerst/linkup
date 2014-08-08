@@ -386,6 +386,10 @@ class Peer extends EventEmitter
 					@currentFile = file
 
 					if file.mode is 'send'
+						@_sendCommand 'metadata', file,
+							name: file.name
+							size: file.size
+							type: file.type
 						# If the file we are sending right now has just been added, its metadata might still be on the way. In this case, the peer doesn't now the id we send with the `receive` command.
 						# todo: Fix this ugly timeout. A solution would by to confirm every command. The `receive` command and the data would then only be sent if the `metadata` has been confirmed. For example:
 						# @_sendCommand 'metadata', file

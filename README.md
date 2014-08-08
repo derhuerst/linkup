@@ -16,14 +16,15 @@ This is Alice:
 
 ```coffee
 alice = new linkup.Peer()    # create a new Peer object
-alice.listen()    # listen for connections
 
-# Alice somehow sends her peer ID to Bob.
 alice.id    # => 'gd38v7'
+# Alice then sends her peer ID to Bob...
 
+# ...and waits for incoming connections.
 alice.on 'open', () ->
 	# Alice is now connected to Bob
 	console.log "connected to #{alice.peer}"
+alice.listen()    # listen for connections
 ```
 
 This is Bob:

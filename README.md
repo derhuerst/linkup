@@ -2,7 +2,7 @@
 
 A JavaScript library providing dead simple file sharing via WebRTC DataChannels. It allows to connect to a listening peer and send native JavaScript [`File`](https://developer.mozilla.org/en-US/docs/Web/API/File) objects.
 
-*linkup* uses [PeerJS](https://github.com/peers/peerjs) to handle the WEBRTC connections and serialization. It also uses the [FileSaver.js](https://github.com/eligrey/FileSaver.js) shim.
+*linkup* uses [PeerJS](https://github.com/peers/peerjs) to handle the WEBRTC connections and serialization.
 
 ## Documentation
 
